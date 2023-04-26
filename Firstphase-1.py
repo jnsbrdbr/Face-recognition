@@ -10,12 +10,12 @@ cap.set(4,480) # set Height
 
 while True:
     ret, img = cap.read()
-    #img = cv2.flip(img, -1)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    faces = faceCascade.detectMultiScale(gray,
-                                        scaleFactor=1.2,
-                                        minNeighbors=5,     
-                                        minSize=(20, 20)
+    #classifier function
+    faces = faceCascade.detectMultiScale(gray,#input grayscale image.
+                                        scaleFactor=1.2,#how much the image size is reduced
+                                        minNeighbors=5,# To filter out false positives and keep only the most probable face rectangles, the algorithm applies a grouping procedure that merges rectangles with similar sizes and positions.
+                                        minSize=(30, 30)# is the minimum rectangle size to be considered a face.
     )
 
     for (x,y,w,h) in faces:
